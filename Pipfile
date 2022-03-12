@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-compress = "*"
+numpy = "*"
+pandas = "*"
+plotly = "*"
+sklearn = "*"
+yfinance = "*"
+lxml = "*"
+gunicorn = "*"
+dash = "*"
+dash-core-components = "*"
+dash-html-components = "*"
+dash-renderer = "*"
+dash-table = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
