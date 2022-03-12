@@ -1,0 +1,21 @@
+*{
+    /* margin: 10;
+    padding: 10; */
+    /* box-sizing: 10; */
+    font-family: "Roboto", san-serif;
+}
+.container{
+    /* display: flex; */
+}
+.nav{
+    width: 25vw;
+    height: 100%;
+    /* align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+    background-color: rgb(5, 107, 107);
+}
+.start{
+    top: 1000px;
+}

@@ -1,3 +1,4 @@
+from logging import PlaceHolder
 import dash
 from dash import dcc as doc
 from dash import html
@@ -11,8 +12,9 @@ app = dash.Dash(__name__)
 server = app.server
 
 item1 = html.Div(
-        [
-            html.P("Welcome to the Stoxk Dash App!", className="start"),
+        className="nav",
+        children=[
+            html.P("Welcome to the Stock Investment App!", className="start"),
             html.Div(
                 [
                     # stock code input
@@ -28,11 +30,11 @@ item1 = html.Div(
             html.Div(
                 [
                     # Date range picker input
-                    html.DatePickerRange(
+                    doc.DatePickerRange(
                         id="date-picker-range", 
                         min_date_allowed=dt(1990, 1, 1),
                         max_date_allowed=dt(250,12,30),
-                        initial_visible_month=dt.now(),
+                        initial_visible_month=dt(2022,2, 9),
                         end_date=dt(2022,12, 9)
                     )
                 ]
@@ -40,23 +42,35 @@ item1 = html.Div(
             html.Div(
                 [
                     # Stock price button
+                    html.Button(
+                        'Stock Price', id="stock-price", n_clicks=0
+                    ),
                     # Indicator button
+                    html.Button(
+                        'Indicators', id="indicator", n_clicks=0
+                    ),
                     # Number of days of forecast input
+                    doc.Input(
+                        id="nod", type="text", placeholder="numbers of days"
+                    ),
                     # Forecast button
+                    html.Button(
+                        'Forecast', id="forecast", n_clicks=0
+                    )
                 ]
             ),
         ],
-        className="nav"
     )
 
 item2 = html.Div(
-        [
+        className="content",
+        children=[
             html.Div(
-                [
+                className="Header",
+                children=[
                     # Logo
                     # Company Name
                 ],
-                className="Header"
             ),
             html.Div(
                 # Description 
@@ -81,10 +95,9 @@ item2 = html.Div(
                 id="forecast-content"
             )
         ],
-        className="content"
     )
 
-app.layout = html.Div([item1, item2])
+app.layout = html.Div([item1, item2], className="container")
 
 
 
